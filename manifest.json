@@ -3,6 +3,7 @@
     "version": "0.0.1",
     "description": "Skip the Matome sites",
     "permissions" : [
+        "storage",
         "tabs"
     ],
     "content_scripts": [
