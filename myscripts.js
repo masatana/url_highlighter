@@ -15,22 +15,6 @@ storage.get("urls", function(items) {
 });
         
 /*
-var array_matome_sites = [
-    "http://matomeja.jp/",
-    "http://hemine.co/",
-    "http://newmofu.doorblog.jp/",
-    "http://uhouho2ch.com/",
-    "http://www.matomech.com/",
-    "http://blog.livedoor.jp/houkagoguide/",
-    "http://waranew.net/",
-    "http://katuru.com/",
-    "http://news-choice.net/",
-    "http://blog-news.doorblog.jp/",
-    "http://xvideo-jp.com/",
-    ]
-*/
-
-/*
 $(function() {
     alert();
     var i;
