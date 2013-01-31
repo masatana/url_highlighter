@@ -1,0 +1,17 @@
+{
+    "name": "URL Hilighter",
+    "version": "0.0.1",
+    "description": "Skip the Matome sites",
+    "permissions" : [
+        "tabs"
+    ],
+    "content_scripts": [
+        {
+            "matches": ["http://*/*"],
+            "js": ["myscripts.js"],
+            "run_at": "document_idle"
+        }
+    ],
+    "options_page": "options.html",
+    "manifest_version": 2
+}
