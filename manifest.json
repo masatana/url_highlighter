@@ -1,5 +1,5 @@
 {
-    "name": "URL Hilighter",
+    "name": "URL Highlighter",
     "version": "0.0.1",
     "description": "Skip the Matome sites",
     "permissions" : [
@@ -9,7 +9,8 @@
     "content_scripts": [
         {
             "matches": ["http://*/*"],
-            "js": ["myscripts.js"],
+            "js": ["jquery.js", "jquery.highlight.js", "myscripts.js"],
+            "css": ["mystyles.css"],
             "run_at": "document_idle"
         }
     ],
