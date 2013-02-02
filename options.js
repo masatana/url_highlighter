@@ -10,12 +10,12 @@ submitButton.addEventListener("click", saveChanges);
 resetButton.addEventListener("click", reset);
 
 function saveChanges() {
-    var hilightURLs = textarea.value;
-    if (!hilightURLs) {
+    var highlightURLs = textarea.value;
+    if (!highlightURLs) {
         message("Error");
         return;
     }
-    storage.set({"urls": hilightURLs} , function() {
+    storage.set({"urls": highlightURLs} , function() {
         message("Setting saved");
     });
 }
