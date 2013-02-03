@@ -3,6 +3,7 @@ var storage = chrome.storage.local;
 var resetButton = document.querySelector("button.reset");
 var submitButton = document.querySelector("button.submit");
 var textarea = document.querySelector("textarea");
+var select = document.getElementById("color");
 
 loadChanges();
 
@@ -11,11 +12,12 @@ resetButton.addEventListener("click", reset);
 
 function saveChanges() {
     var highlightURLs = textarea.value;
-    if (!highlightURLs) {
+    var color = select.children[select.selectedIndex].value;
+    if (!highlightURLs || !color) {
         message("Error");
         return;
     }
-    storage.set({"urls": highlightURLs} , function() {
+    storage.set({"urls": highlightURLs, "color": color} , function() {
         message("Setting saved");
     });
 }

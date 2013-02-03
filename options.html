@@ -22,7 +22,19 @@
     <body>
         <div class="message"></div>
         <h3>URL Highlighter Settings</h3>
-        <textarea name="highlight_url" id="highlight_url" cols=80 rows=24></textarea><br/>
+        <div>
+            <p>Highlight Color : default yellow</p>
+            <select id="color">
+                <option value="yellow">yellow</option>
+                <option value="red">red</option>
+                <option value="green">green</option>
+                <option value="blue">blue</option>
+            </select>
+        </div>
+        <div>
+            <p>URL : </p>
+            <textarea name="highlight_url" id="highlight_url" cols=80 rows=24></textarea><br/>
+        </div>
 
         <button class="submit">Save</button>
         <button class="reset">Reset</button>

@@ -18,6 +18,12 @@ function getURLLists(item_urls) {
     }
     return url_lists;
 }
+// override css highlight color
+storage.get("color", function(items) {
+    var sheet;
+    sheet = document.styleSheets[document.styleSheets.length - 1];
+    sheet.insertRule(".highlight" + "{" + "background-color: " + items.color + "}", sheet.cssRules.length);
+});
 
 storage.get("urls", function(items) {
     console.log(items);
