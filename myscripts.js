@@ -1,32 +1,34 @@
 /*
- * MIT license.
+ * MIT license
  */
 var storage = chrome.storage.local;
+var keys = ["color", "fontweight"];
 
 function getURLLists(item_urls) {
     var url_lists = [];
 
-    // Split for every lines
-    var list_line = item_urls.replace(/[\n\r][\n\r]?/g, "\n").split("\n");
+    // Split for each lines
+    var list_lines = item_urls.replace(/[\n\r][\n\r]?/g, "\n").split("\n");
 
     var line;
-    while(line = list_line.shift()) {
+    while(line = list_lines.shift()) {
         if (line.length == 0) {
             continue;
-        } 
+        }
         url_lists.push(line);
     }
     return url_lists;
 }
 // override css highlight color
-storage.get("color", function(items) {
+storage.get(keys, function(items) {
     var sheet;
     sheet = document.styleSheets[document.styleSheets.length - 1];
-    sheet.insertRule(".highlight" + "{" + "background-color: " + items.color + "}", sheet.cssRules.length);
+    var new_css = ".highlight { background-color:" + items.color + "; font-weight: " + items.fontweight + "}";
+    console.log(new_css);
+    sheet.insertRule(new_css, sheet.cssRules.length);
 });
 
 storage.get("urls", function(items) {
-    console.log(items);
     var url_lists = []
     if (items.urls) {
         url_lists = getURLLists(items.urls);

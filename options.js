@@ -1,9 +1,10 @@
 var storage = chrome.storage.local;
 
-var resetButton = document.querySelector("button.reset");
+var resetButton  = document.querySelector("button.reset");
 var submitButton = document.querySelector("button.submit");
-var textarea = document.querySelector("textarea");
-var select = document.getElementById("color");
+var textarea     = document.querySelector("textarea");
+var select_color = document.getElementById("color");
+var select_fontweight  = document.getElementById("fontweight");
 
 loadChanges();
 
@@ -12,12 +13,13 @@ resetButton.addEventListener("click", reset);
 
 function saveChanges() {
     var highlightURLs = textarea.value;
-    var color = select.children[select.selectedIndex].value;
-    if (!highlightURLs || !color) {
+    var color = select_color.children[select_color.selectedIndex].value;
+    var fontweight = select_fontweight.children[select_fontweight.selectedIndex].value;
+    if (!highlightURLs || !color || !fontweight) {
         message("Error");
         return;
     }
-    storage.set({"urls": highlightURLs, "color": color} , function() {
+    storage.set({"urls": highlightURLs, "color": color, "fontweight": fontweight} , function() {
         message("Setting saved");
     });
 }
@@ -35,7 +37,6 @@ function reset() {
     storage.remove("urls", function(items) {
         message("Reset stored URLs");
     });
-
     textarea.value = "";
 }
 

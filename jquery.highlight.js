@@ -1,11 +1,12 @@
 /*
  * MIT license.
- * This is the fork of "jquery.highlight-4.js"
+ * This is a fork of "jquery.highlight-4.js"
  * see <http://johannburkard.de/blog/programming/javascript/highlight-javascript-text-higlighting-jquery-plugin.html>
  */
 jQuery.fn.highlight = function(pat, url) {
     function innerHighlight(node, pat) {
         var skip = 0;
+        // nodeType 3 is TEXT_NODE
         if (node.nodeType == 3) {
             var pos = node.data.toUpperCase().indexOf(pat);
             if (pos >= 0) {
